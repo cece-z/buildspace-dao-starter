@@ -21,4 +21,4 @@ const app = sdk.getAppModule("0x8a809Fbb671712249AF1F4B193230Bc4E4C5A84e");
 	}
 })();
 
-//  Successfully deployed token module, address: 0x946AA3Daf2c85BE4e82fb452e3aCE3efD82FF906
+//  Successfully deployed ERC20 token module, address: 0x946AA3Daf2c85BE4e82fb452e3aCE3efD82FF906
