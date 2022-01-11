@@ -2,7 +2,7 @@ import { ThirdwebSDK } from "@3rdweb/sdk";
 import { useWeb3 } from "@3rdweb/hooks";
 import { useEffect, useMemo, useState } from "react";
 import { ethers } from "ethers";
-
+import { UnsupportedChainIdError } from "@web3-react/core";
 
 const sdk = new ThirdwebSDK("rinkeby");
 
@@ -145,6 +145,18 @@ const App = () => {
 			return;
 		}
 
+		if (error instanceof UnsupportedChainIdError ) {
+			return (
+				<div className="unsupported-network">
+					<h2>Please connect to Rinkeby</h2>
+					<p>
+						This dapp only works on the Rinkeby network, please switch networks
+						in your connected wallet.
+					</p>
+				</div>
+			);
+		}
+
 		// If we haven't finished retrieving the proposals from the useEffect above
 		// then we can't check if the user voted yet!
 		if (!proposals.length) {
@@ -181,7 +193,7 @@ const App = () => {
 	if (hasClaimedNFT) {
 		return (
 			<div className="member-page">
-				<h1>🍪DAO Member Page</h1>
+				<h1>Cece DAO Member Page</h1>
 				<p>Congratulations on being a member</p>
 				<div>
 					<div>
